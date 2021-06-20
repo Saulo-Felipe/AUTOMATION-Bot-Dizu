@@ -13,6 +13,10 @@ if (window.location.host === "www.instagram.com") {
 					if (Seguir) {
 						setTimeout(() => {
 							Seguir.click()
+							setTimeout(async() => {
+								var block = document.querySelector("body > div.RnEpo.Yx5HN > div > div")
+								if (block) await chrome.runtime.sendMessage({ type: "error", message: "Infelizmente ao tentar realizar a ultima tarefa sua conta foi bloqueada. A extensão foi parada para não comprometer sua conta." })
+							}, 2000)
 						}, 2000)
 
 						//============= TO Next Task ==============
@@ -36,13 +40,18 @@ if (window.location.host === "www.instagram.com") {
 
 					} else {
 						chrome.runtime.sendMessage({ type: "error", message: "Botão de Seguir não encontrado" })
-						chrome.storage.local.set({ on_off: 'off' })
 					}
 				} else if (taskType === "Curtir") {
 					var Curtir = document.querySelector("#react-root > section > main > div > div.ltEKP > article > div.eo2As > section.ltpMr.Slqrh > span.fr66n > button")
 
 					if (Curtir) {
-						setTimeout(() => { Curtir.click() }, 2000)
+						setTimeout(() => { 
+							Curtir.click()
+							setTimeout(async() => {
+								var block = document.querySelector("body > div.RnEpo.Yx5HN > div > div")
+								if (block) await chrome.runtime.sendMessage({ type: "error", message: "Infelizmente, ao tentar realizar a ultima tarefa sua conta foi bloqueada. A extensão foi parada para não comprometer sua conta." })
+							}, 2000)							
+						}, 2000)
 
 						//============= TO Next Task ==============
 							setTimeout(async () => {
@@ -64,11 +73,9 @@ if (window.location.host === "www.instagram.com") {
 
 					} else {
 						chrome.runtime.sendMessage({ type: "error", message: "Botão de Curtir não encontrado" })
-						chrome.storage.local.set({ on_off: 'off' })
 					}
 				} else {
 					chrome.runtime.sendMessage({ type: "error", message: "Nenhum tipo de tarefa encontrado, erro na linha 48 do Instagram.js. Extensão parada." })
-					chrome.storage.local.set({ on_off: 'off' })
 				}
 			}
 		})

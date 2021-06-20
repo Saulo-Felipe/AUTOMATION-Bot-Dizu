@@ -7,7 +7,6 @@ var ActualState = document.querySelector('.ActualState')
 
 toggle.addEventListener('click', async () => {
 	var [tab] = await chrome.tabs.query({ url: "https://dizu.com.br/painel/conectar" })
-
 	if (typeof tab === 'undefined') {
 		chrome.runtime.sendMessage({ type: "error", message: "Para poder Iniciar a extensão, você precisa abrir a pagina Conectar e Ganhar do Dizu!" })
 		chrome.storage.local.set({ on_off: 'off' })
@@ -52,6 +51,11 @@ chrome.storage.local.get('on_off', (data) => {
 })
 //============= LIGA e DESLIGA =============
 
+
+// Notification Sound
+	
+
+// Notification Sound
 
 
 //============== DROPDOWN ================

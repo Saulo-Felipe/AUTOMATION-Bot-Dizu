@@ -6,6 +6,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 		    title: 'Erro encontrado!',
 		    message: `${message.message}`,
 		})
+		chrome.storage.local.set({ on_off: 'off' })
 	} else if (message.type === "FinishedTasks") {
 		chrome.notifications.create(`${Date.now()}`, {
 		    type: 'basic',
@@ -25,6 +26,26 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 			chrome.storage.local.set({ on_off: 'off' })
 		})
 	}
+})
+
+
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+	chrome.storage.local.get('on_off', async(data) => {
+		if (data.on_off === 'on') {
+			if (changeInfo.url && changeInfo.url.indexOf("www.instagram.com") != -1) {
+				var [tab] = await chrome.tabs.query({ url: "https://www.instagram.com/", pinned: true, index: 0})
+				if (tab && tab.id != tabId) {
+					chrome.tabs.remove(tabId)
+					chrome.notifications.create(`${Date.now()}`, {
+					    type: 'basic',
+					    iconUrl: 'Images/logotipo.png',
+					    title: 'ATENÇÃO!',
+					    message: `Para evitar provaveis erros, enquanto a extensão estiver ligada só é permitido que uma aba do instagram esteja aberta. Se você deseja acessar seu instagram, desligue a extensão antes.`,
+					})	
+				}			
+			}
+		}
+	})
 })
 
 chrome.storage.onChanged.addListener((changes) => {
