@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="./style.css">
+	<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+</head>
+<body>
+	<div id="app">
+		<header>
+			<div class="logotipo"></div>
+		</header>
+		<hr>
+		<section>
+			<div class="heandleConfigs">
+				<div class="material-icons-outlined configsIcons">settings</div>
+				<div class="dropdown">
+					<div class="idleTime">
+						<label>Tempo de inatividade entre cada tarefa</label>
+						<br>
+						<input type="number" class="inputs" id="idleTimeInput"> Segundos
+					</div>
+					<hr>
+					<div class="LimitTasks">
+						<label>Quantidade máxima de tarefas a serem realizadas.</label>
+						<br>
+						<input type="number" class="inputs" id="LimitTasksInput"> Tarefas
+						<br>
+						<small>OBS: Use o valor 0 para o sistema realizar tarefas até elas acabarem.</small>
+						<br>
+					</div>
+					<hr>
+					<div class="ErrosIdleTime"></div>
+					<div class="SucessIdleTime"></div>					
+					<button class="submitIdleTime">Salvar Alterações</button>
+				</div>
+			</div>
+			<div class="toggle">
+				<div class="on"></div>
+				<div class="off"></div>
+			</div>
+			<div class="ActualState">Extensão Desligada</div>
+		</section>
+
+		<footer>
+			&copy Saulo Felipe
+		</footer>
+
+		<script type="text/javascript" src="scripts/BackgroundScript.js"></script>
+
+	</div>
+
+</body>
+</html>

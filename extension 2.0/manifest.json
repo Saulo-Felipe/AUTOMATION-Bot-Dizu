@@ -1,0 +1,22 @@
+{
+  "name": "SF Automatic 3.0",
+  "description": "Extensão para o Dizu - compatível com Instagram",
+  "version": "3.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [{
+      "matches": [ "https://www.instagram.com/*", "https://dizu.com.br/painel/conectar"],
+      "js": ["scripts/instagram.js", "scripts/dizu.js"]
+    }],
+  "permissions": ["storage", "activeTab", "tabs", "notifications"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "Images/16.png",
+    "48": "Images/48.png",
+    "128": "Images/128.png"
+  }
+}

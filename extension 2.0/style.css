@@ -1,0 +1,112 @@
+section {
+	text-align: center;
+}
+footer {
+	height: 215px;
+    line-height: 420px;
+    text-align: center;
+}
+#app {
+	height: 500px;
+	width: 300px;
+	background-color: white;
+}
+#app > * {
+	color: black;
+}
+.logotipo {
+	height: 150px;
+	background-image: url('Images/logotipo.png');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.toggle {
+	background-color: rgba(86, 86, 86, 0.2);
+	height: 25px;
+	width: 50px;
+	position: relative;
+	padding: 3px;
+	border-radius: 40px;
+	cursor: pointer;
+	margin: auto;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+.on {
+	background-color: blue;
+	float: right;
+	height: 100%;
+	width: 50%;
+	border-radius: 50%;
+	transform: scale(0);
+	transition: all 0.5s;
+}
+.off {
+	background-color: red;
+	height: 100%;
+	width: 50%;
+	border-radius: 50%;
+	transition: all 0.5s;
+	transform: scale(0);
+}
+
+.configsIcons {
+	font-size: 30px !important;
+    width: min-content;
+    cursor: pointer;
+    transition: all 0.5s;
+	margin-top: -15px;
+	position: fixed;
+	z-index: 99;
+	left: 96%;
+	transform: translateX(-100%) rotate(0deg);
+}
+.dropdown {
+	margin-top: -20px !important;
+	margin-left: -320px;
+    width: 300px;
+    height: 340px;
+    position: absolute;
+    transition: all 0.5s;
+    background-color: white;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    overflow: scroll;
+}
+.idleTime {
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+.SucessIdleTime {
+	color: green;
+	transition: all 1s;
+}
+.ErrosIdleTime {
+	color: red;
+	margin-top: 10px;
+	padding: 10px;
+	transition: all 0.5s;
+}
+.submitIdleTime {
+	border: none;
+    background-color: cadetblue;
+    color: white;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.LimitTasks {
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.inputs {
+	margin-top: 10px;
+	width: 50px;
+}
