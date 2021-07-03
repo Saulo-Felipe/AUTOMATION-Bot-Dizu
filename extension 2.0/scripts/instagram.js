@@ -8,7 +8,7 @@ if (window.location.host === "www.instagram.com") {
 				console.log(`Sorteando numero entre ${data.delayTime} e ${data.delayTime + 5} = ${time}`)
 
 				if (taskType === "Seguir") {
-					var Seguir = document.querySelector("#react-root > section > main > div > header > section button")
+					var Seguir = document.querySelector("#react-root > section > main > div > header > section button") || document.querySelector("#react-root > div > div > section button")
 
 					if (Seguir) {
 						setTimeout(() => {
@@ -39,10 +39,17 @@ if (window.location.host === "www.instagram.com") {
 						//Console Count Time
 
 					} else {
-						chrome.runtime.sendMessage({ type: "error", message: "Botão de Seguir não encontrado" })
+						//chrome.runtime.sendMessage({ type: "error", message: "Botão de Seguir não encontrado" })
+
+						//============= TO Next Task ==============
+							setTimeout(async () => {
+								await chrome.runtime.sendMessage({type: "Finish one Task in Instagram"})
+								console.log('NEXT')
+							}, time * 1000)
+						//============= TO Next Task ==============						
 					}
 				} else if (taskType === "Curtir") {
-					var Curtir = document.querySelector("#react-root > section > main > div > div.ltEKP > article > div.eo2As > section.ltpMr.Slqrh > span.fr66n > button")
+					var Curtir = document.querySelector("#react-root > section > main > div > div.ltEKP > article > div.eo2As > section.ltpMr.Slqrh > span.fr66n > button") || document.querySelector("#react-root > div > div > section > main > div > div.ltEKP > article > div.eo2As > section.ltpMr.Slqrh svg")
 
 					if (Curtir) {
 						setTimeout(() => { 
@@ -72,7 +79,14 @@ if (window.location.host === "www.instagram.com") {
 						//Console Count Time
 
 					} else {
-						chrome.runtime.sendMessage({ type: "error", message: "Botão de Curtir não encontrado" })
+						//chrome.runtime.sendMessage({ type: "error", message: "Botão de Curtir não encontrado" })
+
+						//============= TO Next Task ==============
+							setTimeout(async () => {
+								await chrome.runtime.sendMessage({type: "Finish one Task in Instagram"})
+								console.log('NEXT')
+							}, time * 1000)
+						//============= TO Next Task ==============						
 					}
 				} else {
 					chrome.runtime.sendMessage({ type: "error", message: "Nenhum tipo de tarefa encontrado, erro na linha 48 do Instagram.js. Extensão parada." })

@@ -1,9 +1,9 @@
 body {
 	padding: 0;
 	margin: 0;
+	background-color: #8080800d;
 }
 section {
-	background-color: #8080800d;
 	padding-top: 20px;
 	text-align: center;
 }
